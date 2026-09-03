@@ -20,7 +20,7 @@ echo Criando README.md...
 (
 echo # 🐘 %PROJETO%
 echo.
-echo ## 💻 Projeto PHP
+echo ## 💻 Projeto PHP salvo em %date% as %time%
 echo.
 echo Projeto desenvolvido durante as aulas de PHP.
 echo.
@@ -130,6 +130,6 @@ echo       CONCLUIDO COM SUCESSO!
 echo ========================================
 echo.
 
-start https://github.com/%USUARIO%/%REPOSITORIO%/tree/main/%PASTA%
+start https://github.com/suzycastagnari-jpg/Github_AulasETE----Suzy/tree/main
 
 pause
