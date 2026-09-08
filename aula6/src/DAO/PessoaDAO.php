@@ -2,8 +2,8 @@
 
 namespace App\DAO;
 
-use App\Models\Pessoa;
-use App\Database;
+use App\Model\Pessoa;
+use App\Config\Conexao;
 use App\Utils\Formatter;
 use PDO;
 
@@ -14,8 +14,8 @@ class PessoaDAO
 
     public function __construct()
     {
-        $db = new Database();
-        $this->conn = $db->connect();
+        $db = new Conexao();
+        $this->conn = $db->conectar();
     }
 
     // INSERT

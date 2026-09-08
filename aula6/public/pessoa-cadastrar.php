@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Models\Pessoa;
+use App\Model\Pessoa;
 use App\DAO\PessoaDAO;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

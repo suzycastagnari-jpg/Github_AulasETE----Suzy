@@ -1,15 +1,28 @@
 <?php
 namespace App\Model;
 
-class Pessoa{
+class Pessoa
+{
 
-    private ?int $id = null;       
-    private string $nome;          
-    private ?string $telefone = null;    
-    private string $cpf;           
-    private ?string $endereco = null;    
-    private ?string $createdAt = null; 
+    private ?int $id = null;
+    private string $nome;
+    private ?string $telefone = null;
+    private string $cpf;
+    private ?string $endereco = null;
+    private ?string $createdAt = null;
     private ?string $updatedAt = null;
+
+
+
+    public function __construct(string $nome, ?string $telefone, string $cpf, ?string $endereco)
+    {
+        $this->nome = $nome;
+        $this->telefone = $telefone;
+        $this->cpf = $cpf;
+        $this->endereco = $endereco;
+    }
+
+
 
 
     // Getter e Setter do ID
