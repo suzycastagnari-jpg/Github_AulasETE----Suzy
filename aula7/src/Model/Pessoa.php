@@ -23,8 +23,6 @@ class Pessoa
     }
 
 
-
-
     // Getter e Setter do ID
     public function getId(): ?int
     {

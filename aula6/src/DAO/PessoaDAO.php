@@ -23,12 +23,28 @@ class PessoaDAO
     {
         $sql = "INSERT INTO pessoas (nome, telefone, cpf, endereco)
                 VALUES (:nome, :telefone, :cpf, :endereco)";
+
         $stmt = $this->conn->prepare($sql);
+
         return $stmt->execute([
             ':nome' => $pessoa->getNome(),
             ':telefone' => $pessoa->getTelefone(),
             ':cpf' => $pessoa->getCpf(),
             ':endereco' => $pessoa->getEndereco()
         ]);
+    }
 
-    }}
+    // LISTAR TODAS AS PESSOAS
+    public function listar(): array
+    {
+        $sql = "SELECT id, nome, cpf, telefone, endereco
+                FROM pessoas
+                ORDER BY id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+?>
