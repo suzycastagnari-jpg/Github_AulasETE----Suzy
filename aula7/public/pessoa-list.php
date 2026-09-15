@@ -11,6 +11,99 @@ $dao = new PessoaDAO();
 $pessoas = $dao->listar();
 
 $content = '
+
+<style>
+    body {
+        background: linear-gradient(135deg, #fff5fa, #f8f0ff);
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    h2 {
+        color: #c45a91;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border: 1px solid #f1d8e8 !important;
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+    .table thead {
+        background-color: #f3d9e8 !important;
+    }
+
+    .table thead th {
+        color: #744d68;
+        font-weight: 600;
+        border-bottom: 2px solid #e4bfd3;
+        padding: 15px;
+    }
+
+    .table tbody td {
+        padding: 15px;
+        color: #5f4a57;
+        border-color: #f1e3eb;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #fff5fa;
+    }
+
+    .btn-primary {
+        background-color: #d66b9d;
+        border-color: #d66b9d;
+        border-radius: 10px;
+        padding: 10px 18px;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #bd5688;
+        border-color: #bd5688;
+        transform: translateY(-1px);
+    }
+
+    .btn-warning {
+        background-color: #f2c76e;
+        border-color: #f2c76e;
+        color: #604b28;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .btn-warning:hover {
+        background-color: #e5b957;
+        border-color: #e5b957;
+        color: #604b28;
+    }
+
+    .btn-danger {
+        background-color: #d96b7b;
+        border-color: #d96b7b;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .btn-danger:hover {
+        background-color: #c65365;
+        border-color: #c65365;
+    }
+
+    .text-muted {
+        color: #8b7282 !important;
+    }
+
+    .bi {
+        vertical-align: middle;
+    }
+</style>
+
 <div class="container py-4">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
