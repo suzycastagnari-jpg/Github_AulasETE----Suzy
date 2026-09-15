@@ -105,4 +105,33 @@ class PessoaDAO
             ':id' => $id
         ]);
     }
+
+        // CONTAR TOTAL DE PESSOAS
+    public function contar(): int
+    {
+        $sql = "SELECT COUNT(*) FROM pessoas";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return (int) $stmt->fetchColumn();
+    }
+
+    // LISTAR PAGINADO
+    public function listarPaginado(int $limite, int $offset): array
+    {
+        $sql = "SELECT id, nome, cpf, telefone, endereco
+                FROM pessoas
+                ORDER BY id DESC
+                LIMIT :limite OFFSET :offset";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
