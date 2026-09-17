@@ -106,7 +106,7 @@ class PessoaDAO
         ]);
     }
 
-        // CONTAR TOTAL DE PESSOAS
+    // CONTAR TOTAL DE PESSOAS
     public function contar(): int
     {
         $sql = "SELECT COUNT(*) FROM pessoas";
@@ -129,6 +129,40 @@ class PessoaDAO
 
         $stmt->bindValue(':limite', $limite, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    // PESQUISAR PESSOA
+    public function pesquisar(string $termo): array
+    {
+        $termo = trim($termo);
+
+        // Remove pontos, traços, espaços e outros caracteres
+        $termoCpf = preg_replace('/\D/', '', $termo);
+
+        $sql = "SELECT id, nome, cpf, telefone, endereco
+            FROM pessoas
+            WHERE nome LIKE :nome
+               OR cpf LIKE :cpf
+            ORDER BY id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(
+            ':nome',
+            '%' . $termo . '%',
+            PDO::PARAM_STR
+        );
+
+        $stmt->bindValue(
+            ':cpf',
+            '%' . $termoCpf . '%',
+            PDO::PARAM_STR
+        );
 
         $stmt->execute();
 

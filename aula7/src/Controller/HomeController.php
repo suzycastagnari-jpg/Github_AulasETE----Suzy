@@ -1,8 +1,10 @@
 <?php
 namespace App\Controller;
 
-class HomeController {
-    public function index() {
+class HomeController
+{
+    public function index()
+    {
         // Define o fuso horário do Brasil
         date_default_timezone_set('America/Sao_Paulo');
 
@@ -15,6 +17,6 @@ class HomeController {
             . "<h1 style='color:darkblue;font-family:Arial;'>Bem-vindo ao Projeto MVC de suzy!</h1>"
             . "<hr style='width:501px solid darkblue;'>"
             . "<p style='font-size:18px;color:gray;'>Servidor iniciado em : <b>$dataHora</b></p>"
-        . "</center>";
+            . "</center>";
     }
 }
